@@ -1,0 +1,5 @@
+
+.vs/macan/v15/Server/sqlite3/db.lock
+*.ide
+.vs/macan/v15/Server/sqlite3/storage.ide-shm
+.vs/macan/v15/Server/sqlite3/storage.ide-wal
