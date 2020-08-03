@@ -52,8 +52,9 @@
     <UnityVersion>2020.1.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Test.cs" />
-    <Compile Include="Assets\Script\Maincamera_action.cs" />
+    <Compile Include="Assets\Script\ui\Joystick.cs" />
+    <Compile Include="Assets\Script\ui\Maincamera_action.cs" />
+    <Compile Include="Assets\Script\chareter\enermy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
