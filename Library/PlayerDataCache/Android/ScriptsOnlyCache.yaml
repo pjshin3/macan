@@ -1,8 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Joystick
     - Maincamera_action
-    - Test
+    - enermy
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridBrushEditor
@@ -51,21 +52,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 640}
+      Script: {instanceID: 642}
     - Class: 114
       Script: {instanceID: 11774}
     - Class: 114
-      Script: {instanceID: 12030}
+      Script: {instanceID: 11886}
     - Class: 114
-      Script: {instanceID: 12558}
+      Script: {instanceID: 12032}
     - Class: 114
-      Script: {instanceID: 13760}
+      Script: {instanceID: 12332}
     - Class: 114
-      Script: {instanceID: 14220}
+      Script: {instanceID: 12562}
     - Class: 114
-      Script: {instanceID: 14600}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 14602}
+      Script: {instanceID: 13766}
+    - Class: 114
+      Script: {instanceID: 14226}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -83,8 +86,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 258
-      Script: {instanceID: 0}
-    - Class: 19719996
       Script: {instanceID: 0}
     - Class: 156049354
       Script: {instanceID: 0}
@@ -131,6 +132,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.Advertisements.dll
     namespaceName: UnityEngine.Advertisements.Platform.Editor
     className: BannerPlaceholder
+  - hash:
+      serializedVersion: 2
+      Hash: 04c393faf2aea046fd3f1f7b74384724
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Joystick
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -251,6 +258,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 117ba5f3fd99a4a83b9493d9a8666c69
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enermy
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -377,6 +390,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 3efc3476375f739d85cf8bdcbca36888
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Maincamera_action
   - hash:
       serializedVersion: 2
       Hash: f7bb6096199e0cf058d5d69878184cf4
@@ -575,18 +594,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 04c393faf2aea046fd3f1f7b74384724
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Test
-  - hash:
-      serializedVersion: 2
-      Hash: 3efc3476375f739d85cf8bdcbca36888
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Maincamera_action
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

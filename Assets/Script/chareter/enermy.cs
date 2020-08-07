@@ -22,7 +22,7 @@ public class enermy : MonoBehaviour
     {
       
     }
-    void FixedUpdate()
+    void LateUpdate()
     {
         moving();
     }
@@ -30,25 +30,26 @@ public class enermy : MonoBehaviour
     void moving()
     {
         string dist = "";
+        Vector3 move = Vector3.zero;
 
-        if(masterLocation.position.x < me.position.x)
+        if(masterLocation.position.x < transform.position.x)
         {
             dist = "Left";
         }
-        else if(masterLocation.position.x > me.position.x)
+        else if(masterLocation.position.x > transform.position.x)
         {
             dist = "Right";
         }
         
         if(dist == "Left")
         {
-            me.localScale = new Vector3(1, 1, 1);
+            move = new Vector3(1, 1, 1);
         }else if(dist == "Right")
         {
-            me.localScale = new Vector3(-1, 1, 1);
+            move = new Vector3(-1, 1, 1);
         }
 
-        me.position += masterLocation.position * speed * Time.deltaTime;
-        Debug.Log("지금 마스터의 위치 " + masterLocation.position + masterLocation.localPosition);
+        transform.position = Vector3.Lerp(transform.position, masterLocation.position, speed * Time.deltaTime);
+        Debug.Log("지금 마스터의 위치 " + move + masterLocation.localPosition);
     }
 }
