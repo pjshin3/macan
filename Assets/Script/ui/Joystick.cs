@@ -18,6 +18,9 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
     Vector2 m_vecNormal;
 
     bool m_bTouch = false;
+    Animator animator;
+
+    string direction = "";
 
 
     void Start()
@@ -26,6 +29,8 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
         m_rectJoystick = transform.Find("Joystickback/Joystick").GetComponent<RectTransform>();
 
         m_trCube = GameObject.Find("Master").transform;
+        animator = GameObject.Find("Master").GetComponent<Animator>();
+
 
         // JoystickBackground의 반지름입니다.
         m_fRadius = m_rectBack.rect.width * 0.5f;
@@ -35,7 +40,19 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
     {
         if (m_bTouch)
         {
+            animator.SetBool("move", true);
+            if(direction == "Left")
+            {
+                m_trCube.localScale = new Vector3(-1, 1, 1);
+            } else if(direction == "Right")
+            {
+                m_trCube.localScale = new Vector3(1, 1, 1);
+            }
             m_trCube.position += m_vecMove;
+        }
+        else
+        {
+            animator.SetBool("move", false);
         }
 
     }
@@ -54,6 +71,15 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
 
         // 터치위치 정규화
         Vector2 vecNormal = vec.normalized;
+
+        if(vec.normalized.x > 1)
+        {
+            direction = "Left";
+        }
+        else
+        {
+            direction = "Right";
+        }
 
         m_vecMove = new Vector3(vecNormal.x * m_fSpeed * Time.deltaTime * fSqr, vecNormal.y * m_fSpeed * Time.deltaTime * fSqr, 0f);
         //m_trCube.eulerAngles = new Vector3(0f, Mathf.Atan2(vecNormal.x, vecNormal.y) * Mathf.Rad2Deg, 0f);

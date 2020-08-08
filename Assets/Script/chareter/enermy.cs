@@ -50,6 +50,5 @@ public class enermy : MonoBehaviour
         }
 
         transform.position = Vector3.Lerp(transform.position, masterLocation.position, speed * Time.deltaTime);
-        Debug.Log("지금 마스터의 위치 " + move + masterLocation.localPosition);
     }
 }
