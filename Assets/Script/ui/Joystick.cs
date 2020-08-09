@@ -9,12 +9,14 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
     RectTransform m_rectJoystick;
 
     Transform m_trCube;
+    Transform m_wephone;
+
+
     public float m_fRadius;
     public float m_fSpeed = 5.0f;
     public float m_fSqr = 0f;
 
     Vector3 m_vecMove;
-
     Vector2 m_vecNormal;
 
     bool m_bTouch = false;
@@ -30,7 +32,7 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
 
         m_trCube = GameObject.Find("Master").transform;
         animator = GameObject.Find("Master").GetComponent<Animator>();
-
+        m_wephone = m_trCube.GetChild(0).transform;
 
         // JoystickBackground의 반지름입니다.
         m_fRadius = m_rectBack.rect.width * 0.5f;
@@ -60,11 +62,17 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
     void OnTouch(Vector2 vecTouch)
     {
         Vector2 vec = new Vector2(vecTouch.x - m_rectBack.position.x, vecTouch.y - m_rectBack.position.y);
-
+        
+  
 
         // vec값을 m_fRadius 이상이 되지 않도록 합니다.
         vec = Vector2.ClampMagnitude(vec, m_fRadius);
         m_rectJoystick.localPosition = vec;
+        //무기 위치 변경 
+        //Vector2 vec_t = new Vector2(vecTouch.x - m_rectBack.position.x, vecTouch.y - m_rectBack.position.y);
+        //vec_t = Vector2.ClampMagnitude(vec, 0.5f);
+        //m_wephone.localPosition = vec_t;
+
 
         // 조이스틱 배경과 조이스틱과의 거리 비율로 이동합니다.
         float fSqr = (m_rectBack.position - m_rectJoystick.position).sqrMagnitude / (m_fRadius * m_fRadius);
@@ -72,16 +80,17 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
         // 터치위치 정규화
         Vector2 vecNormal = vec.normalized;
 
-        if(vec.normalized.x > 1)
-        {
-            direction = "Left";
-        }
-        else
+        if(vec.normalized.x > 0)
         {
             direction = "Right";
         }
+        else
+        {
+            direction = "Left";
+        }
 
         m_vecMove = new Vector3(vecNormal.x * m_fSpeed * Time.deltaTime * fSqr, vecNormal.y * m_fSpeed * Time.deltaTime * fSqr, 0f);
+
         //m_trCube.eulerAngles = new Vector3(0f, Mathf.Atan2(vecNormal.x, vecNormal.y) * Mathf.Rad2Deg, 0f);
     }
 
@@ -93,8 +102,11 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        OnTouch(eventData.position);
-        m_bTouch = true;
+
+            OnTouch(eventData.position);
+            m_bTouch = true;
+        
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)

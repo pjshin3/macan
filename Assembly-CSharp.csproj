@@ -53,8 +53,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\ui\Joystick.cs" />
-    <Compile Include="Assets\Script\ui\Maincamera_action.cs" />
     <Compile Include="Assets\Script\chareter\enermy.cs" />
+    <Compile Include="Assets\Script\ui\Maincamera_action.cs" />
+    <Compile Include="Assets\Script\ui\attack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
