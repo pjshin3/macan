@@ -34,6 +34,11 @@ public class Maincamera_action : MonoBehaviour
 
     private void LateUpdate()
     {
+
+    }
+
+    private void FixedUpdate()
+    {
         MoveCamera();
         shakeCamera();
     }

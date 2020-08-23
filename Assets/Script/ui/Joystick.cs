@@ -40,13 +40,19 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
 
     void Update()
     {
+
+    }
+
+    void FixedUpdate()
+    {
         if (m_bTouch)
         {
             animator.SetBool("move", true);
-            if(direction == "Left")
+            if (direction == "Left")
             {
                 m_trCube.localScale = new Vector3(-1, 1, 1);
-            } else if(direction == "Right")
+            }
+            else if (direction == "Right")
             {
                 m_trCube.localScale = new Vector3(1, 1, 1);
             }
@@ -56,7 +62,6 @@ public class Joystick: MonoBehaviour,IPointerDownHandler, IDragHandler, IPointer
         {
             animator.SetBool("move", false);
         }
-
     }
 
     void OnTouch(Vector2 vecTouch)
